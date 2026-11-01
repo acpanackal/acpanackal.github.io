@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Senior Software Developer Portfolio</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Additional styles -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+        .hero {
+            background: linear-gradient(135deg, #f7f7f7, #e0e0e0);
+            padding: 80px 0;
+        }
+        .header-section {
+            text-align: center;
+        }
+        .project-cards {
+            gap: 20px;
+        }
+        .project-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .project-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .project-card p {
+            font-size: 1em;
+            color: #666;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header Section -->
+    <section class="hero container mx-auto p-6">
+        <div class="header-section flex items-center justify-center">
+            <h1 class="text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
+            <p class="text-xl">Senior Software Developer | AI and Automation Expert</p>
+        </div>
+    </section>
+
+    <!-- Project Cards Section -->
+    <section class="project-cards container mx-auto mt-12">
+        <h2 class="text-2xl font-bold mb-6 text-center">Upcoming AI Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Project 1: AI Meal Planner -->
+            <div class="project-card">
+                <h3 class="text-lg font-semibold mb-2">AI Meal Planner</h3>
+                <p class="text-gray-600">Automatically plan meals based on dietary preferences and calendar events.</p>
+            </div>
+
+            <!-- Project 2: Weekly Magazine with Google Calendar -->
+            <div class="project-card">
+                <h3 class="text-lg font-semibold mb-2">Weekly Magazine with Google Calendar</h3>
+                <p class="text-gray-600">Generate a personalized weekly magazine by syncing with your Google Calendar.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

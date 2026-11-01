@@ -232,7 +232,7 @@
         padding: 1.5rem;
         background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(11, 19, 32, 0.9));
         border: 1px solid var(--border);
-        border-radius: 28px;
+        border-radius: 30px;
         box-shadow: var(--shadow);
       }
 
@@ -255,7 +255,7 @@
         height: 100%;
         min-height: 420px;
         object-fit: cover;
-        border-radius: 22px;
+        border-radius: 24px;
         background:
           linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(125, 211, 252, 0.08)),
           #0b1728;
@@ -361,6 +361,33 @@
 
       .info-item strong {
         font-size: 1.1rem;
+      }
+
+      .profile-facts {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .fact-card {
+        padding: 1.15rem 1rem;
+        border: 1px solid var(--border);
+        background: rgba(11, 19, 32, 0.8);
+        border-radius: 18px;
+      }
+
+      .fact-card .label {
+        display: block;
+        color: var(--muted);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+      }
+
+      .fact-card strong {
+        font-size: 1.08rem;
       }
 
       .cards-grid {
@@ -616,7 +643,8 @@
         .about-grid,
         .cards-grid,
         .projects-grid,
-        .timeline {
+        .timeline,
+        .profile-facts {
           grid-template-columns: 1fr;
         }
 
@@ -680,9 +708,9 @@
               for real-world impact.
             </h1>
             <p class="lead">
-              I’m Akhila Cyriac Panackal, a Fullstack Developer and AI automation specialist
-              with hands-on experience building scalable web products, cloud-native applications,
-              and intelligent workflows for real business needs.
+              I’m Akhila Cyriac Panackal, a Fullstack Developer with a strong focus on AI-driven
+              automation, cloud-native products, and user-centric digital experiences. I design and
+              build practical systems that turn complex work into faster, cleaner, and more efficient outcomes.
             </p>
 
             <div class="hero-actions">
@@ -693,15 +721,15 @@
             <div class="hero-stats">
               <div class="stat">
                 <strong>3+</strong>
-                <span>Years in Product Development</span>
+                <span>Years in product delivery</span>
               </div>
               <div class="stat">
                 <strong>10+</strong>
-                <span>Projects Delivered</span>
+                <span>Solutions designed</span>
               </div>
               <div class="stat">
                 <strong>AI</strong>
-                <span>Automation & Cloud Solutions</span>
+                <span>Automation & cloud systems</span>
               </div>
             </div>
           </div>
@@ -732,15 +760,14 @@
           <div class="about-grid">
             <div class="panel about-copy">
               <p>
-                I design and implement efficient digital experiences that help teams operate
-                faster, smarter, and with less friction. My work sits at the intersection of
-                full-stack development, AI, automation, and user-centric product strategy.
+                I design and implement efficient digital experiences that help teams operate faster,
+                smarter, and with less friction. My work sits at the intersection of full-stack development,
+                AI, automation, and user-centered product strategy.
               </p>
               <p>
-                From intelligent workflows and cloud platforms to responsive web interfaces,
-                I focus on building systems that are technically solid, business-ready, and
-                impactful. I enjoy translating complex ideas into practical solutions that
-                create measurable value for users and organizations.
+                With experience across modern web development, cloud platforms, and workflow optimization,
+                I focus on building systems that are technically strong, business-ready, and genuinely useful.
+                I enjoy translating complex ideas into practical solutions that create measurable value for users and teams.
               </p>
               <div class="skills-list" aria-label="Core skills">
                 <span class="tag">AI</span>
@@ -770,6 +797,21 @@
                 <span>Approach</span>
                 <strong>Simple, scalable, and user-centered</strong>
               </div>
+            </div>
+          </div>
+
+          <div class="profile-facts">
+            <div class="fact-card">
+              <span class="label">Core stack</span>
+              <strong>Python, JavaScript, React, FastAPI</strong>
+            </div>
+            <div class="fact-card">
+              <span class="label">Cloud</span>
+              <strong>AWS, Azure, REST APIs, Docker</strong>
+            </div>
+            <div class="fact-card">
+              <span class="label">Current focus</span>
+              <strong>AI workflows, automation, product delivery</strong>
             </div>
           </div>
         </div>

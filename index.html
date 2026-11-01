@@ -414,11 +414,64 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 1.5rem;
+        padding: 1.25rem;
         border: 1px solid var(--border);
         background: rgba(15, 23, 42, 0.82);
         border-radius: 22px;
-        min-height: 320px;
+        min-height: 420px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(52, 211, 153, 0.07), transparent 28%, transparent 100%);
+        pointer-events: none;
+      }
+
+      .project-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .project-card.featured {
+        background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(9, 17, 28, 0.96));
+        border-color: rgba(52, 211, 153, 0.35);
+        box-shadow: 0 24px 48px rgba(2, 6, 23, 0.35);
+      }
+
+      .project-visual {
+        position: relative;
+        width: 100%;
+        height: 190px;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: #0b1728;
+        margin-bottom: 1rem;
+      }
+
+      .project-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .project-visual-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(7, 17, 31, 0.78);
+        border: 1px solid rgba(255,255,255,0.12);
+        color: #d9f5ff;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
       }
 
       .project-card .top {
@@ -472,7 +525,7 @@
       .project-links {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.7rem;
+        gap: 0.9rem;
         margin-top: 1.2rem;
       }
 
@@ -758,6 +811,40 @@
           </div>
 
           <div class="projects-grid">
+            <article class="project-card featured">
+              <div class="project-visual">
+                <img
+                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+                  alt="PDF Merger project preview"
+                />
+                <span class="project-visual-badge">Luxury Workflow</span>
+              </div>
+
+              <div class="top">
+                <div>
+                  <div class="meta">Document Tools</div>
+                  <h3>PDF Merger</h3>
+                </div>
+                <span class="project-pill">Featured</span>
+              </div>
+
+              <p>
+                A polished document management solution built to merge PDFs quickly,
+                cleanly, and with a premium user experience for personal and professional use.
+              </p>
+
+              <div class="project-tags">
+                <span>Web App</span>
+                <span>PDF</span>
+                <span>UX</span>
+              </div>
+
+              <div class="project-links">
+                <a href="https://acpanackal.github.io/pdf-merger/" target="_blank" rel="noreferrer">Demo</a>
+                <a href="https://github.com/acpanackal/pdf-merger" target="_blank" rel="noreferrer">Code</a>
+              </div>
+            </article>
+
             <article class="project-card">
               <div class="top">
                 <div>
@@ -807,32 +894,6 @@
               <div class="project-links">
                 <a href="#contact">View</a>
                 <a href="#contact">Discuss</a>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <div class="top">
-                <div>
-                  <div class="meta">Intelligence</div>
-                  <h3>Decision Support</h3>
-                </div>
-                <span class="project-pill">Data</span>
-              </div>
-
-              <p>
-                Built a structured framework for turning raw information into actionable
-                insights that support better business decisions.
-              </p>
-
-              <div class="project-tags">
-                <span>Analytics</span>
-                <span>Insights</span>
-                <span>Strategy</span>
-              </div>
-
-              <div class="project-links">
-                <a href="#contact">Learn More</a>
-                <a href="#contact">Connect</a>
               </div>
             </article>
           </div>

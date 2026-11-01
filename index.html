@@ -3,286 +3,718 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akhila Cyriac Panackal - AI & Automation Portfolio</title>
-    <!-- Tailwind CSS via CDN -->
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
-    <!-- Custom Tailwind Configuration -->
-    <script>
-        const tailwindConfig = {
-            theme: {
-                extend: {
-                    colors: {
-                        emerald: {
-                            50: '#ecfdf5',
-                            500: '#10b981',
-                            400: '#34d399',
-                            600: '#059669'
-                        }
-                    }
-                }
-            }
-        };
-        document.documentElement.dataset.tailwindConfig = JSON.stringify(tailwindConfig);
-    </script>
-    <!-- Lucide Icons via CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/lucide-icons/dist/lucide.css" rel="stylesheet">
-    <!-- Ambient Gradient Background Mesh -->
+    <meta name="description" content="Akhila Cyriac Panackal is an AI and automation specialist building production-ready systems and intelligent workflows.">
+    <title>Akhila Cyriac Panackal | AI & Automation Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        :root {
+            --bg: #07111d;
+            --bg-elevated: #0d1727;
+            --panel: rgba(15, 23, 42, 0.82);
+            --panel-strong: rgba(15, 23, 42, 0.96);
+            --card: rgba(17, 24, 39, 0.8);
+            --line: rgba(148, 163, 184, 0.15);
+            --text: #e5eefb;
+            --muted: #a4b0c6;
+            --accent: #5eead4;
+            --accent-strong: #34d399;
+            --accent-soft: rgba(94, 234, 212, 0.12);
+            --secondary: #7dd3fc;
+            --shadow: 0 24px 60px rgba(2, 6, 23, 0.45);
+        }
+
+        * { box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background: linear-gradient(225deg, rgba(3, 7, 18, 0.9) 0%, rgba(30, 39, 55, 0.9) 100%);
             margin: 0;
-            padding: 0;
-            color: #d1d5db;
+            font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(16, 185, 129, 0.14), transparent 30%),
+                radial-gradient(circle at right, rgba(96, 165, 250, 0.18), transparent 35%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.7;
         }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1100px, calc(100% - 2rem));
+            margin: 0 auto;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(14px);
+            background: rgba(7, 17, 29, 0.72);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 80px;
+            gap: 1.5rem;
+        }
+
+        .brand {
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #f8fbff;
+        }
+
+        .brand span {
+            color: var(--accent);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav a {
+            color: var(--muted);
+            font-size: 0.96rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            padding: 0.72rem 1.2rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+            color: #062118;
+            font-weight: 700;
+            box-shadow: 0 14px 28px rgba(52, 211, 153, 0.25);
+        }
+
         .hero {
-            background: rgba(3, 7, 18, 0.7);
-            backdrop-filter: blur(20px);
-            padding: 80px 0;
+            padding: 5rem 0 4rem;
         }
-        .header-section {
-            text-align: center;
-        }
-        .header-section a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .header-section a:hover {
-            color: #b4befe;
-        }
-        .hero h1 {
-            font-size: 4rem;
-            line-height: 1.2;
-            margin: 0;
-            text-align: center;
-            text-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            background: -webkit-linear-gradient(135deg, #10b981, #34d399);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient-text 5s linear infinite;
-        }
-        .hero h1::before {
-            content: "✨ ";
-            color: #10b981;
-            font-weight: bold;
-        }
-        .hero h1::after {
-            content: " Projects";
-            color: #34d399;
-            font-weight: bold;
-        }
-        @keyframes gradient-text {
-            0% {
-                background-position: 0 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0 50%;
-            }
-        }
-        .hero .subtitle {
-            font-size: 2rem;
-            font-weight: 600;
-            margin: 1rem 0;
-            text-align: center;
-        }
-        .hero .cta {
-            margin: 2rem 0;
-        }
-        .hero .cta a {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1rem;
-            text-decoration: none;
-            color: #d1d5db;
-            background: linear-gradient(135deg, #10b981, #34d399);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .hero .cta a:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        .projects-grid {
-            margin-top: 6rem;
+
+        .hero-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1.35fr 0.95fr;
+            align-items: center;
+            gap: 2.5rem;
         }
-        .project-card {
-            background: #1f2937;
-            backdrop-filter: blur(10px);
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-soft);
+            border: 1px solid rgba(94, 234, 212, 0.25);
+            padding: 0.5rem 0.9rem;
+            border-radius: 999px;
+            color: var(--accent);
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 1.25rem 0 1rem;
+            font-size: clamp(2.5rem, 4vw, 5rem);
+            line-height: 1.02;
+            letter-spacing: -0.06em;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #f8fbff 0%, #85f8d9 35%, #7dd3fc 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-copy p {
+            margin: 0;
+            max-width: 60ch;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .cta-row {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0.85rem 1.35rem;
+            border-radius: 14px;
+            border: 1px solid transparent;
+            font-weight: 600;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+            color: #062118;
+            box-shadow: 0 12px 30px rgba(52, 211, 153, 0.2);
+        }
+
+        .btn-secondary {
+            border-color: rgba(148, 163, 184, 0.22);
+            background: rgba(15, 23, 42, 0.5);
+            color: var(--text);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 2.1rem;
+        }
+
+        .stat {
+            padding: 1.2rem 1rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.6rem;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        .profile-card {
+            position: relative;
+            padding: 1.25rem;
+            border-radius: 28px;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.72));
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-visual {
+            position: relative;
+            min-height: 440px;
+            border-radius: 22px;
+            overflow: hidden;
+            background: linear-gradient(160deg, rgba(17, 24, 39, 0.96), rgba(30, 41, 59, 0.92));
+            border: 1px solid rgba(148, 163, 184, 0.14);
+        }
+
+        .profile-visual::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(94, 234, 212, 0.2), transparent 30%);
+        }
+
+        .profile-inner {
+            position: absolute;
+            inset: 0;
             padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            transition: transform 0.3s ease;
-        }
-        .project-card:hover {
-            transform: scale(1.03);
-        }
-        .project-card .content {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            justify-content: end;
         }
-        .project-card .tags {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        .project-card .tags a {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 4px 8px;
-            transition: background 0.3s ease;
-        }
-        .project-card .tags a:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        .project-card .cta {
-            margin-top: 1rem;
-            display: flex;
-            gap: 1rem;
-        }
-        .project-card .cta a {
-            padding: 8px 16px;
-            font-size: 0.8rem;
-            text-decoration: none;
-            color: #d1d5db;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            transition: background 0.3s ease;
-        }
-        .project-card .cta a:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        .experience-tech {
-            margin-top: 6rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        .experience-tech .item {
-            background: #1f2937;
+
+        .mini-card {
+            position: relative;
+            z-index: 1;
+            background: rgba(8, 15, 28, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            border-radius: 18px;
+            padding: 1.1rem 1rem;
+            max-width: 280px;
             backdrop-filter: blur(10px);
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mini-card span {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin-bottom: 0.35rem;
+        }
+
+        .mini-card strong {
+            display: block;
+            font-size: 1.35rem;
+            letter-spacing: -0.04em;
+        }
+
+        .section {
+            padding: 2.5rem 0 5rem;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-head h2 {
+            margin: 0;
+            font-size: clamp(2rem, 2.5vw, 2.8rem);
+            letter-spacing: -0.05em;
+        }
+
+        .section-head p {
+            margin: 0;
+            color: var(--muted);
+            max-width: 44ch;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 1.4rem;
+        }
+
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: 1.5rem;
+            box-shadow: 0 18px 40px rgba(2, 6, 23, 0.22);
+        }
+
+        .panel p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .highlights {
+            list-style: none;
+            margin: 1.1rem 0 0;
+            padding: 0;
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        .highlights li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .highlights li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .capabilities {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .capability {
+            background: rgba(15, 23, 42, 0.74);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 1.3rem 1.2rem;
+        }
+
+        .capability h3 {
+            margin: 0 0 0.6rem;
+            font-size: 1.15rem;
+            letter-spacing: -0.03em;
+        }
+
+        .capability p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.2rem;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 1.6rem;
+            border-radius: 22px;
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid var(--line);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(94, 234, 212, 0.35);
+        }
+
+        .project-card h3 {
+            margin: 0 0 0.8rem;
+            font-size: 1.5rem;
+            letter-spacing: -0.04em;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            padding: 0.42rem 0.7rem;
+            background: rgba(148, 163, 184, 0.08);
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            color: var(--muted);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            margin: 0 0 1.2rem;
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        .project-links {
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 0.6rem 0.9rem;
             border-radius: 12px;
-            transition: transform 0.3s ease;
+            background: rgba(148, 163, 184, 0.08);
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            color: var(--text);
+            font-weight: 600;
         }
-        .experience-tech .item:hover {
-            transform: scale(1.03);
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.5rem 1.6rem;
+            border-radius: 22px;
+            border: 1px solid var(--line);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(12, 18, 28, 0.9));
         }
+
+        .contact-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
         .footer {
-            margin-top: 6rem;
+            padding: 1.8rem 0 3rem;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
             text-align: center;
-            padding: 2rem;
-            background: #1f2937;
-            color: #d1d5db;
         }
+
         .footer a {
-            text-decoration: none;
-            color: #b4befe;
-            transition: color 0.3s ease;
+            color: var(--accent);
+            font-weight: 600;
         }
-        .footer a:hover {
-            color: #d1d5db;
+
+        @media (max-width: 900px) {
+            .hero-grid,
+            .about-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-visual {
+                min-height: 360px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-inner {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 0.9rem 0;
+            }
+
+            .nav {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .stats,
+            .capabilities {
+                grid-template-columns: 1fr;
+            }
+
+            .section-head {
+                display: block;
+            }
+
+            .contact-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
-<body class="bg-[#030718]">
-
-    <!-- Header Section -->
-    <header class="hero fixed top-0 left-0 w-full h-48 backdrop-filter backdrop-blur-xl border-b border-white/5">
-        <div class="header-section flex items-center justify-between p-6 md:justify-center md:items-center md:gap-4">
-            <a href="#home" class="text-white text-3xl font-bold tracking-wide block md:inline-block">Akhila Cyriac Panackal</a>
-            <nav class="hidden md:flex items-center gap-4">
-                <a href="#about" class="text-white hover:text-gray-300">About</a>
-                <a href="#projects" class="text-white hover:text-gray-300">Projects</a>
-                <a href="#experience" class="text-white hover:text-gray-300">Experience</a>
-                <a href="#contact" class="text-white hover:text-gray-300">Contact</a>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#home">Akhila <span>Cyriac</span> Panackal</a>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+                <a class="nav-cta" href="https://github.com/acpanackal" target="_blank" rel="noreferrer">GitHub</a>
             </nav>
-            <button class="md:hidden text-white text-xl p-2 rounded-lg hover:bg-white/10 backdrop-filter backdrop-blur-xl">
-                <lucide-icon name="menu" class="w-6 h-6" />
-            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero flex flex-col justify-center items-center p-24">
-        <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 tracking-tight sm:text-2xl md:text-4xl">Building Production-Ready AI Agents</h1>
-        <h2 class="subtitle text-lg font-bold text-gray-400 leading-relaxed sm:text-base md:text-lg">From Fulda, Germany</h2>
-        <div class="cta flex justify-center gap-4">
-            <a href="#" class="bg-emerald-500 text-white p-4 rounded-lg shadow-md hover:shadow-lg hover:scale-105">Explore Code</a>
-            <a href="#" class="bg-white/10 text-emerald-500 p-4 rounded-lg shadow-md hover:shadow-lg hover:scale-105">Join Now</a>
-        </div>
-    </section>
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <div class="eyebrow">AI & Automation Portfolio</div>
+                    <h1>
+                        I build <span class="gradient-text">intelligent systems</span> that turn ideas into outcomes.
+                    </h1>
+                    <p>
+                        I’m Akhila Cyriac Panackal, an AI and automation specialist focused on designing production-ready solutions,
+                        data-driven workflows, and user-centric digital experiences that create measurable impact.
+                    </p>
 
-    <!-- Projects Grid Section -->
-    <section id="projects" class="projects-grid p-24">
-        <h2 class="text-2xl font-bold text-white mb-4">Selected Core Projects</h2>
-        <div class="project-card">
-            <div class="content">
-                <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">AI Meal Planner</h3>
-                <div class="tags flex gap-2">
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">React</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">FastAPI</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Gemini API</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Structured JSON</a>
+                    <div class="cta-row">
+                        <a class="btn btn-primary" href="#projects">View Projects</a>
+                        <a class="btn btn-secondary" href="#contact">Let’s Connect</a>
+                    </div>
+
+                    <div class="stats" aria-label="Key stats">
+                        <div class="stat">
+                            <strong>4+</strong>
+                            <span>Core project systems</span>
+                        </div>
+                        <div class="stat">
+                            <strong>AI</strong>
+                            <span>Workflow automation</span>
+                        </div>
+                        <div class="stat">
+                            <strong>Ops</strong>
+                            <span>Built for scale</span>
+                        </div>
+                    </div>
                 </div>
-                <p class="text-gray-400 text-lg sm:text-base md:text-lg">An automated nutrition system that orchestrates raw user constraints (diet, macros, inventory) into mathematically consistent weekly menus via structured LLM response mapping.</p>
-                <div class="cta flex gap-4">
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Live Demo</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">View Code</a>
+
+                <div class="profile-card" aria-label="Profile summary">
+                    <div class="profile-visual">
+                        <div class="profile-inner">
+                            <div class="mini-card">
+                                <span>Location</span>
+                                <strong>Fulda, Germany</strong>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="project-card">
-            <div class="content">
-                <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">Weekly Calendar Magazine</h3>
-                <div class="tags flex gap-2">
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Python</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Google Calendar API</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">GitHub Actions</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">LLM Orchestration</a>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>About me</h2>
+                    <p>I combine product thinking, AI integration, and software craftsmanship to build reliable systems that scale.</p>
                 </div>
-                <p class="text-gray-400 text-lg sm:text-base md:text-lg">A secure automated pipeline compiling private calendar metadata, cross-referencing contextual interests, and executing batch LLM jobs to synthesize a personalized digital briefing.</p>
-                <div class="cta flex gap-4">
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Explore Code</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">View Architecture</a>
+
+                <div class="about-grid">
+                    <div class="panel">
+                        <p>
+                            I design and build digital products and automation workflows that bridge technical complexity with practical value.
+                            My focus lies in AI-enabled systems, backend integrations, process optimization, and clean, user-centered interfaces.
+                        </p>
+                        <ul class="highlights">
+                            <li>Designing practical AI workflows for real-world use cases</li>
+                            <li>Building automation pipelines that reduce friction and save time</li>
+                            <li>Delivering polished frontend experiences with product quality in mind</li>
+                        </ul>
+                    </div>
+
+                    <div class="panel">
+                        <div class="capabilities">
+                            <article class="capability">
+                                <h3>Generative AI</h3>
+                                <p>Integrating LLM capabilities into real products and workflows with structure, safety, and business context.</p>
+                            </article>
+                            <article class="capability">
+                                <h3>Automation</h3>
+                                <p>Building reliable pipelines, event-driven processes, and tools that streamline operational work.</p>
+                            </article>
+                            <article class="capability">
+                                <h3>Backend APIs</h3>
+                                <p>Connecting services, exposing interfaces, and orchestrating product logic with maintainable architecture.</p>
+                            </article>
+                            <article class="capability">
+                                <h3>Frontend UX</h3>
+                                <p>Creating elegant interfaces and structured experiences that are functional, readable, and modern.</p>
+                            </article>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience & Tech Stack Section -->
-    <section id="experience" class="experience-tech p-24">
-        <h2 class="text-2xl font-bold text-white mb-4">Technical Capabilities</h2>
-        <div class="item">
-            <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">Generative AI Integration</h3>
-            <p class="text-gray-400 text-lg sm:text-base md:text-lg">Mastering the deployment and integration of advanced generative AI models for production environments.</p>
-        </div>
-        <div class="item">
-            <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">API Pipelines</h3>
-            <p class="text-gray-400 text-lg sm:text-base md:text-lg">Building robust API pipelines that seamlessly integrate various backend services and expose them as cohesive endpoints.</p>
-        </div>
-        <div class="item">
-            <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">Python Automation</h3>
-            <p class="text-gray-400 text-lg sm:text-base md:text-lg">Crafting efficient Python scripts and automation tools for data processing, system administration, and other tasks.</p>
-        </div>
-        <div class="item">
-            <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">Modern Frontend Architecture</h3>
-            <p class="text-gray-400 text-lg sm:text-base md:text-lg">Designing and implementing cutting-edge frontend architectures using modern frameworks and libraries.</p>
-        </div>
-    </section>
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Featured projects</h2>
+                    <p>Selected solutions that demonstrate applied AI, automation, and product thinking.</p>
+                </div>
 
-    <!-- Footer Section -->
-    <footer class="footer text-center p-12">
-        <p class="text-gray-400">© 2026 Akhila Cyriac Panackal. Connect with me on GitHub <a href="https://github.com/acpanackal" target="_blank" class="text-blu-500">@acpanackal</a></p>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <h3>AI Meal Planner</h3>
+                        <div class="project-meta">
+                            <span class="tag">React</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">Gemini API</span>
+                            <span class="tag">Structured JSON</span>
+                        </div>
+                        <p>
+                            An automated nutrition system that translates personal dietary constraints, available ingredients, and macro goals into
+                            a coherent, practical meal plan with intelligent recommendations.
+                        </p>
+                        <div class="project-links">
+                            <a href="#">Live Demo</a>
+                            <a href="#">View Code</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>Weekly Calendar Magazine</h3>
+                        <div class="project-meta">
+                            <span class="tag">Python</span>
+                            <span class="tag">Google Calendar</span>
+                            <span class="tag">GitHub Actions</span>
+                            <span class="tag">LLM Orchestration</span>
+                        </div>
+                        <p>
+                            A secure, automated pipeline that combines calendar metadata, contextual interests, and generated summaries into a polished,
+                            personalized weekly overview.
+                        </p>
+                        <div class="project-links">
+                            <a href="#">Explore Code</a>
+                            <a href="#">Architecture</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Capabilities</h2>
+                    <p>Focused on systems that are scalable, maintainable, and useful in production environments.</p>
+                </div>
+
+                <div class="capabilities">
+                    <article class="capability">
+                        <h3>AI Product Integration</h3>
+                        <p>Designing effective deployments of modern AI models into user-facing workflows and internal automation tools.</p>
+                    </article>
+                    <article class="capability">
+                        <h3>API & Data Pipelines</h3>
+                        <p>Building clean interfaces and resilient pipelines that connect services and improve operational efficiency.</p>
+                    </article>
+                    <article class="capability">
+                        <h3>Python Automation</h3>
+                        <p>Turning repetitive or complex workflows into maintainable automation that saves time and reduces errors.</p>
+                    </article>
+                    <article class="capability">
+                        <h3>Modern Frontend Development</h3>
+                        <p>Creating polished, accessible interfaces that are built for clarity, usability, and strong product experience.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-card">
+                    <div>
+                        <h3 style="margin: 0 0 0.3rem; font-size: clamp(1.6rem, 2vw, 2.2rem); letter-spacing: -0.04em;">Let’s build something meaningful.</h3>
+                        <p>Open to AI-driven product work, automation projects, and thoughtful digital experiences.</p>
+                    </div>
+                    <a class="btn btn-primary" href="https://github.com/acpanackal" target="_blank" rel="noreferrer">Open GitHub</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            © 2026 Akhila Cyriac Panackal • <a href="https://github.com/acpanackal" target="_blank" rel="noreferrer">@acpanackal</a>
+        </div>
     </footer>
-
 </body>
 </html>

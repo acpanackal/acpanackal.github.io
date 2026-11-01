@@ -3,68 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Senior Software Developer Portfolio</title>
-    <!-- Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Additional styles -->
+    <title>Akhila Cyriac Panackal - AI & Automation Portfolio</title>
+    <!-- Tailwind CSS via CDN -->
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        const tailwindConfig = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5',
+                            500: '#10b981',
+                            400: '#34d399',
+                            600: '#059669'
+                        }
+                    }
+                }
+            }
+        };
+        document.documentElement.dataset.tailwindConfig = JSON.stringify(tailwindConfig);
+    </script>
+    <!-- Lucide Icons via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/lucide-icons/dist/lucide.css" rel="stylesheet">
+    <!-- Ambient Gradient Background Mesh -->
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
+            background: linear-gradient(225deg, rgba(3, 7, 18, 0.9) 0%, rgba(30, 39, 55, 0.9) 100%);
+            margin: 0;
+            padding: 0;
+            color: #d1d5db;
         }
         .hero {
-            background: linear-gradient(135deg, #f7f7f7, #e0e0e0);
+            background: rgba(3, 7, 18, 0.7);
+            backdrop-filter: blur(20px);
             padding: 80px 0;
         }
         .header-section {
             text-align: center;
         }
-        .project-cards {
-            gap: 20px;
+        .header-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
-        .project-card {
-            background: #fff;
-            border-radius: 8px;
-            padding: 20px;
+        .header-section a:hover {
+            color: #b4befe;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin: 0;
+            text-align: center;
+            text-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background: -webkit-linear-gradient(135deg, #10b981, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-text 5s linear infinite;
+        }
+        .hero h1::before {
+            content: "✨ ";
+            color: #10b981;
+            font-weight: bold;
+        }
+        .hero h1::after {
+            content: " Projects";
+            color: #34d399;
+            font-weight: bold;
+        }
+        @keyframes gradient-text {
+            0% {
+                background-position: 0 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0 50%;
+            }
+        }
+        .hero .subtitle {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        .hero .cta {
+            margin: 2rem 0;
+        }
+        .hero .cta a {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: #d1d5db;
+            background: linear-gradient(135deg, #10b981, #34d399);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hero .cta a:hover {
+            transform: scale(1.1);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
-        .project-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
+        .projects-grid {
+            margin-top: 6rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
-        .project-card p {
-            font-size: 1em;
-            color: #666;
+        .project-card {
+            background: #1f2937;
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: scale(1.03);
+        }
+        .project-card .content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .project-card .tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .project-card .tags a {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 4px 8px;
+            transition: background 0.3s ease;
+        }
+        .project-card .tags a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .project-card .cta {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .project-card .cta a {
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #d1d5db;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        .project-card .cta a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .experience-tech {
+            margin-top: 6rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .experience-tech .item {
+            background: #1f2937;
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .experience-tech .item:hover {
+            transform: scale(1.03);
+        }
+        .footer {
+            margin-top: 6rem;
+            text-align: center;
+            padding: 2rem;
+            background: #1f2937;
+            color: #d1d5db;
+        }
+        .footer a {
+            text-decoration: none;
+            color: #b4befe;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: #d1d5db;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-[#030718]">
 
     <!-- Header Section -->
-    <section class="hero container mx-auto p-6">
-        <div class="header-section flex items-center justify-center">
-            <h1 class="text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
-            <p class="text-xl">Senior Software Developer | AI and Automation Expert</p>
+    <header class="hero fixed top-0 left-0 w-full h-48 backdrop-filter backdrop-blur-xl border-b border-white/5">
+        <div class="header-section flex items-center justify-between p-6 md:justify-center md:items-center md:gap-4">
+            <a href="#home" class="text-white text-3xl font-bold tracking-wide block md:inline-block">Akhila Cyriac Panackal</a>
+            <nav class="hidden md:flex items-center gap-4">
+                <a href="#about" class="text-white hover:text-gray-300">About</a>
+                <a href="#projects" class="text-white hover:text-gray-300">Projects</a>
+                <a href="#experience" class="text-white hover:text-gray-300">Experience</a>
+                <a href="#contact" class="text-white hover:text-gray-300">Contact</a>
+            </nav>
+            <button class="md:hidden text-white text-xl p-2 rounded-lg hover:bg-white/10 backdrop-filter backdrop-blur-xl">
+                <lucide-icon name="menu" class="w-6 h-6" />
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero flex flex-col justify-center items-center p-24">
+        <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 tracking-tight sm:text-2xl md:text-4xl">Building Production-Ready AI Agents</h1>
+        <h2 class="subtitle text-lg font-bold text-gray-400 leading-relaxed sm:text-base md:text-lg">From Fulda, Germany</h2>
+        <div class="cta flex justify-center gap-4">
+            <a href="#" class="bg-emerald-500 text-white p-4 rounded-lg shadow-md hover:shadow-lg hover:scale-105">Explore Code</a>
+            <a href="#" class="bg-white/10 text-emerald-500 p-4 rounded-lg shadow-md hover:shadow-lg hover:scale-105">Join Now</a>
         </div>
     </section>
 
-    <!-- Project Cards Section -->
-    <section class="project-cards container mx-auto mt-12">
-        <h2 class="text-2xl font-bold mb-6 text-center">Upcoming AI Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Project 1: AI Meal Planner -->
-            <div class="project-card">
-                <h3 class="text-lg font-semibold mb-2">AI Meal Planner</h3>
-                <p class="text-gray-600">Automatically plan meals based on dietary preferences and calendar events.</p>
+    <!-- Projects Grid Section -->
+    <section id="projects" class="projects-grid p-24">
+        <h2 class="text-2xl font-bold text-white mb-4">Selected Core Projects</h2>
+        <div class="project-card">
+            <div class="content">
+                <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">AI Meal Planner</h3>
+                <div class="tags flex gap-2">
+                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">React</a>
+                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">FastAPI</a>
+                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Gemini API</a>
+                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Structured JSON</a>
+                </div>
+                <p class="text-gray-400 text-lg sm:text-base md:text-lg">An automated nutrition system that orchestrates raw user constraints (diet, macros, inventory) into mathematically consistent weekly menus via structured LLM response mapping.</p>
+                <div class="cta flex gap-4">
+                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Live Demo</a>
+                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">View Code</a>
+                </div>
             </div>
-
-            <!-- Project 2: Weekly Magazine with Google Calendar -->
-            <div class="project-card">
-                <h3 class="text-lg font-semibold mb-2">Weekly Magazine with Google Calendar</h3>
-                <p class="text-gray-600">Generate a personalized weekly magazine by syncing with your Google Calendar.</p>
+        </div>
+        <div class="project-card">
+            <div class="content">
+                <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">Weekly Calendar Magazine</h3>
+                <div class="tags flex gap-2">
+                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Python</a>
+                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Google Calendar API</a>
+                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">GitHub Actions</a>
+                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">LLM Orchestration</a>
+                </div>
+                <p class="text-gray-400 text-lg sm:text-base md:text-lg">A secure automated pipeline compiling private calendar metadata, cross-referencing contextual interests, and executing batch LLM jobs to synthesize a personalized digital briefing.</p>
+                <div class="cta flex gap-4">
+                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Explore Code</a>
+                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">View Architecture</a>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Experience & Tech Stack Section -->
+    <section id="experience" class="experience-tech p-24">
+        <h2 class="text-2xl font-bold text-white mb-4">Technical Capabilities</h2>
+        <div class="item">
+            <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">Generative AI Integration</h3>
+            <p class="text-gray-400 text-lg sm:text-base md:text-lg">Mastering the deployment and integration of advanced generative AI models for production environments.</p>
+        </div>
+        <div class="item">
+            <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">API Pipelines</h3>
+            <p class="text-gray-400 text-lg sm:text-base md:text-lg">Building robust API pipelines that seamlessly integrate various backend services and expose them as cohesive endpoints.</p>
+        </div>
+        <div class="item">
+            <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">Python Automation</h3>
+            <p class="text-gray-400 text-lg sm:text-base md:text-lg">Crafting efficient Python scripts and automation tools for data processing, system administration, and other tasks.</p>
+        </div>
+        <div class="item">
+            <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">Modern Frontend Architecture</h3>
+            <p class="text-gray-400 text-lg sm:text-base md:text-lg">Designing and implementing cutting-edge frontend architectures using modern frameworks and libraries.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer text-center p-12">
+        <p class="text-gray-400">© 2026 Akhila Cyriac Panackal. Connect with me on GitHub <a href="https://github.com/acpanackal" target="_blank" class="text-blu-500">@acpanackal</a></p>
+    </footer>
 
 </body>
 </html>

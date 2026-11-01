@@ -1,336 +1,913 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akhila Cyriac Panackal - AI & Automation Portfolio</title>
-    <!-- Tailwind CSS via CDN -->
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
-    <!-- Custom Tailwind Configuration -->
-    <script>
-        const tailwindConfig = {
-            theme: {
-                extend: {
-                    colors: {
-                        emerald: {
-                            50: '#ecfdf5',
-                            500: '#10b981',
-                            400: '#34d399',
-                            600: '#059669'
-                        }
-                    }
-                }
-            }
-        };
-        document.documentElement.dataset.tailwindConfig = JSON.stringify(tailwindConfig);
-    </script>
-    <!-- Lucide Icons via CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/lucide-icons/dist/lucide.css" rel="stylesheet">
-    <!-- Ambient Gradient Background Mesh -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Akhila Cyriac Panackal - AI & Automation Portfolio"
+    />
+    <title>Akhila Cyriac Panackal | Portfolio</title>
     <style>
-        body {
-            background: linear-gradient(225deg, rgba(3, 7, 18, 0.9) 0%, rgba(30, 39, 55, 0.9) 100%);
-            margin: 0;
-            padding: 0;
-            color: #d1d5db;
-        }
-        .hero {
-            background: rgba(3, 7, 18, 0.7);
-            backdrop-filter: blur(20px);
-            padding: 80px 0;
-        }
-        .header-section {
-            text-align: center;
-        }
-        .header-section a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .header-section a:hover {
-            color: #b4befe;
-        }
-        .hero h1 {
-            font-size: 4rem;
-            line-height: 1.2;
-            margin: 0;
-            text-align: center;
-            text-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            background: -webkit-linear-gradient(135deg, #10b981, #34d399);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient-text 5s linear infinite;
-        }
-        .hero h1::before {
-            content: "✨ ";
-            color: #10b981;
-            font-weight: bold;
-        }
-        .hero h1::after {
-            content: " Projects";
-            color: #34d399;
-            font-weight: bold;
-        }
-        @keyframes gradient-text {
-            0% {
-                background-position: 0 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0 50%;
-            }
-        }
-        .hero .subtitle {
-            font-size: 2rem;
-            font-weight: 600;
-            margin: 1rem 0;
-            text-align: center;
-        }
-        .hero .cta {
-            margin: 2rem 0;
-        }
-        .hero .cta a {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1rem;
-            text-decoration: none;
-            color: #d1d5db;
-            background: linear-gradient(135deg, #10b981, #34d399);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .hero .cta a:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        .projects-grid {
-            margin-top: 6rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .project-card {
-            background: #1f2937;
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            transition: transform 0.3s ease;
-        }
-        .project-card:hover {
-            transform: scale(1.03);
-        }
-        .project-card .content {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .project-card .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        .project-card .tags a {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 4px 8px;
-            transition: background 0.3s ease;
-            text-decoration: none;
-            color: #d1d5db;
-        }
-        .project-card .tags a:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        .project-card .cta {
-            margin-top: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .project-card .cta a {
-            padding: 8px 16px;
-            font-size: 0.8rem;
-            text-decoration: none;
-            color: #d1d5db;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            transition: background 0.3s ease;
-        }
-        .project-card .cta a:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        .experience-tech {
-            margin-top: 6rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        .experience-tech .item {
-            background: #1f2937;
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            transition: transform 0.3s ease;
-        }
-        .experience-tech .item:hover {
-            transform: scale(1.03);
-        }
-        .footer {
-            margin-top: 6rem;
-            text-align: center;
-            padding: 2rem;
-            background: #1f2937;
-            color: #d1d5db;
-        }
-        .footer a {
-            text-decoration: none;
-            color: #b4befe;
-            transition: color 0.3s ease;
-        }
-        .footer a:hover {
-            color: #d1d5db;
-        }
-    </style>
-</head>
-<body class="bg-[#030718]">
+      :root {
+        --bg: #07111f;
+        --bg-soft: #101b2b;
+        --panel: rgba(15, 23, 42, 0.82);
+        --panel-strong: #0f172a;
+        --card: #111827;
+        --card-alt: #0b1320;
+        --text: #e5eefb;
+        --muted: #a9b7c9;
+        --primary: #34d399;
+        --primary-strong: #10b981;
+        --secondary: #7dd3fc;
+        --border: rgba(148, 163, 184, 0.2);
+        --glow: rgba(52, 211, 153, 0.3);
+        --shadow: 0 24px 60px rgba(2, 6, 23, 0.45);
+        --max-width: 1180px;
+      }
 
-    <!-- Header Section -->
-    <header class="hero fixed top-0 left-0 w-full h-48 backdrop-filter backdrop-blur-xl border-b border-white/5">
-        <div class="header-section flex items-center justify-between p-6 md:justify-center md:items-center md:gap-4">
-            <a href="#home" class="text-white text-3xl font-bold tracking-wide block md:inline-block">Akhila Cyriac Panackal</a>
-            <nav class="hidden md:flex items-center gap-4">
-                <a href="#about" class="text-white hover:text-gray-300">About</a>
-                <a href="#projects" class="text-white hover:text-gray-300">Projects</a>
-                <a href="#experience" class="text-white hover:text-gray-300">Experience</a>
-                <a href="#contact" class="text-white hover:text-gray-300">Contact</a>
-            </nav>
-            <button class="md:hidden text-white text-xl p-2 rounded-lg hover:bg-white/10 backdrop-filter backdrop-blur-xl">
-                <lucide-icon name="menu" class="w-6 h-6" />
-            </button>
-        </div>
+      * { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(16, 185, 129, 0.18), transparent 30%),
+          radial-gradient(circle at right center, rgba(125, 211, 252, 0.12), transparent 35%),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(var(--max-width), calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(14px);
+        background: rgba(7, 17, 31, 0.7);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 78px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        color: var(--bg);
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 11px;
+        box-shadow: 0 10px 24px rgba(52, 211, 153, 0.4);
+        font-weight: 800;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        font-size: 0.96rem;
+        transition: 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .nav-cta {
+        padding: 0.8rem 1.25rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--primary-strong), var(--secondary));
+        color: #03130e;
+        font-weight: 700;
+        box-shadow: 0 14px 26px rgba(16, 185, 129, 0.28);
+      }
+
+      .hero {
+        padding: 5.5rem 0 4rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.45rem 0.8rem;
+        border: 1px solid rgba(52, 211, 153, 0.4);
+        background: rgba(16, 185, 129, 0.08);
+        color: #bbf7d0;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        margin: 1.1rem 0 1rem;
+        font-size: clamp(2.8rem, 5vw, 5rem);
+        line-height: 1.04;
+        letter-spacing: -0.06em;
+      }
+
+      .hero h1 .highlight {
+        background: linear-gradient(135deg, var(--primary), #a7f3d0);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .lead {
+        max-width: 640px;
+        color: var(--muted);
+        font-size: 1.15rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.9rem 1.5rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        font-weight: 700;
+        transition: 0.2s ease;
+      }
+
+      .button.primary {
+        background: linear-gradient(135deg, var(--primary-strong), var(--secondary));
+        color: #02130d;
+        border: none;
+        box-shadow: 0 20px 30px rgba(16, 185, 129, 0.2);
+      }
+
+      .button.secondary {
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--text);
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+      }
+
+      .hero-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .stat {
+        min-width: 140px;
+        padding: 1rem 1.15rem;
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.55rem;
+        line-height: 1.2;
+        margin-bottom: 0.15rem;
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .profile-card {
+        position: relative;
+        padding: 1.5rem;
+        background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(11, 19, 32, 0.9));
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+      }
+
+      .profile-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(135deg, rgba(52, 211, 153, 0.12), transparent 50%, rgba(125, 211, 252, 0.08));
+        pointer-events: none;
+      }
+
+      .avatar-wrap {
+        position: relative;
+        padding: 1.25rem;
+      }
+
+      .avatar {
+        border-radius: 22px;
+        min-height: 420px;
+        background:
+          linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(125, 211, 252, 0.08)),
+          #0b1728;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: clamp(4rem, 10vw, 7rem);
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      .mini-card {
+        margin-top: 1rem;
+        padding: 1rem 1.1rem;
+        border-radius: 18px;
+        background: rgba(11, 19, 32, 0.9);
+        border: 1px solid var(--border);
+        position: relative;
+        z-index: 1;
+      }
+
+      .mini-card b {
+        font-size: 1.1rem;
+      }
+
+      section {
+        padding: 4.5rem 0;
+      }
+
+      .section-head {
+        margin-bottom: 2rem;
+      }
+
+      .section-head .kicker {
+        color: #bbf7d0;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .section-head h2 {
+        margin: 0.5rem 0 0;
+        font-size: clamp(2rem, 3vw, 3rem);
+        letter-spacing: -0.04em;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 2rem;
+        align-items: start;
+      }
+
+      .panel {
+        border: 1px solid var(--border);
+        background: rgba(15, 23, 42, 0.78);
+        border-radius: 22px;
+        padding: 1.6rem;
+        box-shadow: var(--shadow);
+      }
+
+      .about-copy p {
+        margin-top: 0;
+        color: var(--muted);
+        font-size: 1.04rem;
+      }
+
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin-top: 1.2rem;
+      }
+
+      .tag {
+        padding: 0.55rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(52, 211, 153, 0.08);
+        color: #d1fae5;
+        border: 1px solid rgba(52, 211, 153, 0.2);
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+
+      .info-stack {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .info-item {
+        padding: 1rem 1.1rem;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: rgba(11, 19, 32, 0.8);
+      }
+
+      .info-item span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.8rem;
+        margin-bottom: 0.3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .info-item strong {
+        font-size: 1.1rem;
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+
+      .feature-card {
+        padding: 1.5rem;
+        border-radius: 22px;
+        background: linear-gradient(180deg, rgba(15, 23, 42, 0.8), rgba(11, 19, 32, 0.82));
+        border: 1px solid var(--border);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(52, 211, 153, 0.4);
+      }
+
+      .feature-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: rgba(52, 211, 153, 0.1);
+        color: var(--primary);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .feature-card h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      .feature-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+
+      .project-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1.5rem;
+        border: 1px solid var(--border);
+        background: rgba(15, 23, 42, 0.82);
+        border-radius: 22px;
+        min-height: 320px;
+      }
+
+      .project-card .top {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .project-card h3 {
+        margin: 0.4rem 0 0.3rem;
+        font-size: 1.35rem;
+      }
+
+      .project-card .meta {
+        color: var(--muted);
+        font-size: 0.82rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .project-pill {
+        padding: 0.45rem 0.7rem;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        background: rgba(125, 211, 252, 0.1);
+        color: #d9f5ff;
+        border: 1px solid rgba(125, 211, 252, 0.2);
+      }
+
+      .project-card p {
+        color: var(--muted);
+        margin: 0.8rem 0 1.2rem;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .project-tags span {
+        padding: 0.45rem 0.6rem;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        color: #dfe9f5;
+        font-size: 0.75rem;
+      }
+
+      .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin-top: 1.2rem;
+      }
+
+      .project-links a {
+        color: var(--text);
+        font-weight: 700;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem 1.25rem;
+      }
+
+      .timeline-item {
+        padding: 1.4rem 1.3rem;
+        border: 1px solid var(--border);
+        background: rgba(15, 23, 42, 0.8);
+        border-radius: 18px;
+      }
+
+      .timeline-item .year {
+        display: inline-block;
+        margin-bottom: 0.8rem;
+        color: #bbf7d0;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+      }
+
+      .timeline-item h3 {
+        margin: 0 0 0.2rem;
+        font-size: 1.2rem;
+      }
+
+      .timeline-item .role {
+        color: var(--muted);
+        margin-bottom: 0.6rem;
+      }
+
+      .timeline-item p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .cta-panel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        padding: 2rem;
+        border-radius: 26px;
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(125, 211, 252, 0.08));
+        border: 1px solid rgba(52, 211, 153, 0.2);
+      }
+
+      .cta-panel h3 {
+        margin: 0 0 0.25rem;
+        font-size: clamp(1.8rem, 3vw, 2.5rem);
+        letter-spacing: -0.04em;
+      }
+
+      .cta-panel p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .site-footer {
+        padding: 2rem 0 3rem;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .about-grid,
+        .cards-grid,
+        .projects-grid,
+        .timeline {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          padding: 0.8rem 0;
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero {
+          padding-top: 4rem;
+        }
+
+        .nav-links {
+          gap: 0.8rem 1rem;
+        }
+
+        .hero-actions,
+        .cta-panel {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .button,
+        .nav-cta {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="Akhila Cyriac Panackal home">
+          <span class="brand-mark">A</span>
+          <span>Akhila Cyriac Panackal</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact" class="nav-cta">Let’s Connect</a>
+        </nav>
+      </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero flex flex-col justify-center items-center p-24">
-        <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 tracking-tight sm:text-2xl md:text-4xl">Building Production-Ready AI & Automation Solutions</h1>
-        <h2 class="subtitle text-lg font-bold text-gray-400 leading-relaxed sm:text-base md:text-lg">From Fulda, Germany</h2>
-        <div class="cta flex justify-center gap-4">
-            <a href="https://github.com/acpanackal" target="_blank" class="bg-emerald-500 text-white p-4 rounded-lg shadow-md hover:shadow-lg hover:scale-105">Explore Code</a>
-            <a href="https://www.linkedin.com/in/akhila-panackal/" target="_blank" class="bg-white/10 text-emerald-500 p-4 rounded-lg shadow-md hover:shadow-lg hover:scale-105">LinkedIn</a>
-        </div>
-    </section>
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <span class="eyebrow">AI • Automation • Innovation</span>
+            <h1>
+              Building <span class="highlight">smarter systems</span><br />
+              for real-world impact.
+            </h1>
+            <p class="lead">
+              I’m a technology-focused professional specializing in AI, automation,
+              workflow optimization, and digital transformation. I turn complex
+              business problems into elegant, efficient, and scalable solutions.
+            </p>
 
-    <!-- About Section -->
-    <section id="about" class="p-24">
-        <h2 class="text-2xl font-bold text-white mb-6">About Me</h2>
-        <p class="text-lg text-gray-300 leading-relaxed">
-            I am an AI-focused software developer and automation specialist with a strong interest in building practical digital tools that improve productivity, decision-making, and user experience. I work across modern front-end development, backend automation, and AI-driven workflows, with a focus on clean architecture, robust integrations, and tangible business value.
-        </p>
-    </section>
-
-    <!-- Projects Grid Section -->
-    <section id="projects" class="projects-grid p-24">
-        <h2 class="text-2xl font-bold text-white mb-4">Selected Core Projects</h2>
-
-        <div class="project-card">
-            <div class="content">
-                <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">PDF Merger</h3>
-                <div class="tags flex gap-2">
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">HTML</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">CSS</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">JavaScript</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">PDF.js</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">PDF-lib</a>
-                </div>
-                <p class="text-gray-400 text-lg sm:text-base md:text-lg">
-                    A browser-based PDF utility that lets users merge multiple documents and compress a single PDF for easier sharing and storage. The project focuses on a clean user experience, fast processing, and practical document workflow automation.
-                </p>
-                <div class="cta flex gap-4">
-                    <a href="https://acpanackal.github.io/pdf-merger/" target="_blank" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Live Demo</a>
-                    <a href="https://github.com/acpanackal/pdf-merger" target="_blank" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">View Code</a>
-                </div>
+            <div class="hero-actions">
+              <a class="button primary" href="#projects">View Projects</a>
+              <a class="button secondary" href="#contact">Contact Me</a>
             </div>
-        </div>
 
-        <div class="project-card">
-            <div class="content">
-                <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">AI Meal Planner</h3>
-                <div class="tags flex gap-2">
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">React</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">FastAPI</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Gemini API</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Structured JSON</a>
-                </div>
-                <p class="text-gray-400 text-lg sm:text-base md:text-lg">
-                    An intelligent nutrition assistant that converts dietary preferences, macros, and pantry inventory into structured meal plans. The solution demonstrates AI orchestration, user-focused workflow design, and practical automation for everyday decision support.
-                </p>
-                <div class="cta flex gap-4">
-                    <a href="https://github.com/acpanackal" target="_blank" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">GitHub</a>
-                    <a href="#projects" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Concept Overview</a>
-                </div>
+            <div class="hero-stats">
+              <div class="stat">
+                <strong>4+</strong>
+                <span>Years of Experience</span>
+              </div>
+              <div class="stat">
+                <strong>10+</strong>
+                <span>Projects Delivered</span>
+              </div>
+              <div class="stat">
+                <strong>100%</strong>
+                <span>Problem Solving Mindset</span>
+              </div>
             </div>
-        </div>
+          </div>
 
-        <div class="project-card">
-            <div class="content">
-                <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">Weekly Calendar Magazine</h3>
-                <div class="tags flex gap-2">
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Python</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Google Calendar API</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">GitHub Actions</a>
-                    <a href="#" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">LLM Orchestration</a>
-                </div>
-                <p class="text-gray-400 text-lg sm:text-base md:text-lg">
-                    An automated content pipeline that consolidates personal calendar data, contextual interests, and structured prompts to produce a personalized weekly magazine summary. It highlights workflow automation, scheduling intelligence, and prompt-driven content generation.
-                </p>
-                <div class="cta flex gap-4">
-                    <a href="https://github.com/acpanackal" target="_blank" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">GitHub</a>
-                    <a href="#projects" class="text-white bg-white/10 p-2 rounded-lg sm:text-sm md:text-base">Architecture</a>
-                </div>
+          <div class="profile-card">
+            <div class="avatar-wrap">
+              <div class="avatar" aria-label="Profile illustration">👩‍💻</div>
             </div>
+            <div class="mini-card">
+              <b>AI & Automation Portfolio</b><br />
+              <span style="color: var(--muted);">Designing efficient digital workflows and intelligent solutions.</span>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Experience & Tech Stack Section -->
-    <section id="experience" class="experience-tech p-24">
-        <h2 class="text-2xl font-bold text-white mb-4">Technical Capabilities</h2>
-        <div class="item">
-            <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">Generative AI Integration</h3>
-            <p class="text-gray-400 text-lg sm:text-base md:text-lg">Deploying and integrating advanced generative AI models to create practical, production-ready solutions for real-world workflows.</p>
-        </div>
-        <div class="item">
-            <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">API Pipelines</h3>
-            <p class="text-gray-400 text-lg sm:text-base md:text-lg">Designing robust API-layer integrations that connect services, automate business logic, and produce reliable outputs.</p>
-        </div>
-        <div class="item">
-            <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">Python Automation</h3>
-            <p class="text-gray-400 text-lg sm:text-base md:text-lg">Building efficient automation scripts for data handling, document processing, and operational optimization.</p>
-        </div>
-        <div class="item">
-            <h3 class="text-2xl font-bold text-white sm:text-xl md:text-2xl">Modern Frontend Architecture</h3>
-            <p class="text-gray-400 text-lg sm:text-base md:text-lg">Developing intuitive user interfaces with scalable frontend structures that prioritize clarity and usability.</p>
-        </div>
-    </section>
+      <section id="about">
+        <div class="container">
+          <div class="section-head">
+            <div class="kicker">About</div>
+            <h2>Technology with purpose.</h2>
+          </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="p-24">
-        <h2 class="text-2xl font-bold text-white mb-4">Contact</h2>
-        <p class="text-lg text-gray-300 leading-relaxed">
-            Email: <a href="mailto:akhilacyriacpanackal@gmail.com" class="text-emerald-400">akhilacyriacpanackal@gmail.com</a><br>
-            Phone: <a href="tel:+491794605820" class="text-emerald-400">+49 179 4605820</a><br>
-            LinkedIn: <a href="https://www.linkedin.com/in/akhila-panackal/" target="_blank" class="text-emerald-400">linkedin.com/in/akhila-panackal</a>
-        </p>
-    </section>
+          <div class="about-grid">
+            <div class="panel about-copy">
+              <p>
+                I design and implement efficient digital experiences that help teams
+                operate faster, smarter, and with less friction. My work sits at the
+                intersection of AI, automation, and user-centric development.
+              </p>
+              <p>
+                From process optimization to intelligent workflows and modern web
+                interfaces, I focus on building systems that are both technically
+                strong and business-ready. I enjoy translating ideas into high-impact
+                solutions that create measurable value.
+              </p>
+              <div class="skills-list" aria-label="Core skills">
+                <span class="tag">AI</span>
+                <span class="tag">Automation</span>
+                <span class="tag">Python</span>
+                <span class="tag">Web Apps</span>
+                <span class="tag">Process Design</span>
+                <span class="tag">Data Systems</span>
+              </div>
+            </div>
 
-    <!-- Footer Section -->
-    <footer class="footer text-center p-12">
-        <p class="text-gray-400">© 2026 Akhila Cyriac Panackal. Connect with me on GitHub <a href="https://github.com/acpanackal" target="_blank" class="text-blue-500">@acpanackal</a></p>
+            <div class="info-stack">
+              <div class="info-item">
+                <span>Focus</span>
+                <strong>AI-driven automation</strong>
+              </div>
+              <div class="info-item">
+                <span>Specialization</span>
+                <strong>Digital transformation</strong>
+              </div>
+              <div class="info-item">
+                <span>Approach</span>
+                <strong>Simple, scalable, impactful</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="expertise">
+        <div class="container">
+          <div class="section-head">
+            <div class="kicker">Expertise</div>
+            <h2>What I bring to the table.</h2>
+          </div>
+
+          <div class="cards-grid">
+            <article class="feature-card">
+              <div class="feature-icon">⚙️</div>
+              <h3>Automation Strategy</h3>
+              <p>
+                I streamline manual workflows, reduce operational overhead, and build
+                systems that save time across teams and processes.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">🤖</div>
+              <h3>AI Solutions</h3>
+              <p>
+                I develop intelligent tools and decision-support workflows that improve
+                accuracy, productivity, and business efficiency.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">💡</div>
+              <h3>Product Thinking</h3>
+              <p>
+                I align technical execution with user needs, business goals, and
+                practical outcomes that create sustainable value.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="container">
+          <div class="section-head">
+            <div class="kicker">Projects</div>
+            <h2>Selected work.</h2>
+          </div>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="top">
+                <div>
+                  <div class="meta">Automation</div>
+                  <h3>Workflow Optimizer</h3>
+                </div>
+                <span class="project-pill">AI</span>
+              </div>
+
+              <p>
+                Automated repetitive operational tasks and reduced execution time by
+                replacing fragmented, manual steps with a streamlined system.
+              </p>
+
+              <div class="project-tags">
+                <span>Python</span>
+                <span>Workflow</span>
+                <span>Efficiency</span>
+              </div>
+
+              <div class="project-links">
+                <a href="#contact">Case Study</a>
+                <a href="#contact">Details</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="top">
+                <div>
+                  <div class="meta">Portfolio</div>
+                  <h3>Personal Brand</h3>
+                </div>
+                <span class="project-pill">Web</span>
+              </div>
+
+              <p>
+                Designed a polished digital presence to communicate expertise, projects,
+                and impact in a professional and approachable way.
+              </p>
+
+              <div class="project-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>UX</span>
+              </div>
+
+              <div class="project-links">
+                <a href="#contact">View</a>
+                <a href="#contact">Discuss</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="top">
+                <div>
+                  <div class="meta">Intelligence</div>
+                  <h3>Decision Support</h3>
+                </div>
+                <span class="project-pill">Data</span>
+              </div>
+
+              <p>
+                Built a structured framework for turning raw information into actionable
+                insights that support better business decisions.
+              </p>
+
+              <div class="project-tags">
+                <span>Analytics</span>
+                <span>Insights</span>
+                <span>Strategy</span>
+              </div>
+
+              <div class="project-links">
+                <a href="#contact">Learn More</a>
+                <a href="#contact">Connect</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <div class="container">
+          <div class="section-head">
+            <div class="kicker">Experience</div>
+            <h2>Impact through execution.</h2>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item">
+              <span class="year">2024</span>
+              <h3>AI & Automation Specialist</h3>
+              <div class="role">Focused on intelligent systems and operational efficiency</div>
+              <p>
+                Built automation-first workflows and improved productivity through
+                practical, measurable digital solutions.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <span class="year">2023</span>
+              <h3>Digital Solution Designer</h3>
+              <div class="role">Created user-focused business tools</div>
+              <p>
+                Combined technical execution with product thinking to design experiences
+                that solve real business challenges.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <span class="year">2022</span>
+              <h3>Process Improvement Focus</h3>
+              <div class="role">Optimized workflows and systems</div>
+              <p>
+                Evaluated manual processes and introduced smarter operational models to
+                improve speed and quality.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <span class="year">2021</span>
+              <h3>Technology & Innovation</h3>
+              <div class="role">Explored modern digital capabilities</div>
+              <p>
+                Developed a strong foundation in automation, web tools, and intelligent
+                problem solving for future-ready opportunities.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <div class="cta-panel">
+            <div>
+              <h3>Let’s build something meaningful.</h3>
+              <p>Open to opportunities in AI, automation, and digital innovation.</p>
+            </div>
+            <a class="button primary" href="mailto:akhila@example.com">Get in Touch</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© 2025 Akhila Cyriac Panackal</div>
+        <div>AI • Automation • Innovation</div>
+      </div>
     </footer>
-
-</body>
+  </body>
 </html>
